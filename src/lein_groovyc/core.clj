@@ -1,0 +1,1 @@
+(ns lein-groovyc.core)
