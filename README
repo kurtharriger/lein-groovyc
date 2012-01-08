@@ -1,13 +1,22 @@
 # lein-groovyc
 
-FIXME: write description
+Compile groovy source files
 
 ## Usage
 
-FIXME: write
+   Add the following to your project.clj
+   :dev-dependencies [[lein-groovyc "0.1.0"]]
+   :groovyc-source-path "src/groovy"
+
+   ;;Multiple paths and additional options can be specified in a vectore
+   :groovyc-source-path [["src/groovy/main" :includeJavaRuntime true]]
+
+   ;; or more generally in groovyc-options
+   :groovyc-options {:includeJavaRuntime true}
+
 
 ## License
 
-Copyright (C) 2012 FIXME
+Copyright (C) 2012 Kurt Harriger
 
 Distributed under the Eclipse Public License, the same as Clojure.
