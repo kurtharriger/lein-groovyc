@@ -8,7 +8,7 @@ Compile groovy source files
    :dev-dependencies [[lein-groovyc "0.1.0"]]
    :groovyc-source-path "src/groovy"
 
-   ;;Multiple paths and additional options can be specified in a vectore
+   ;;Multiple paths and additional options can be specified in a vector
    :groovyc-source-path [["src/groovy/main" :includeJavaRuntime true]]
 
    ;; or more generally in groovyc-options
