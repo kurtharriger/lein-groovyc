@@ -40,7 +40,7 @@
   (groovyc-task task-spec))
 
 (defn groovyc
-  "Compile Java source files.
+  "Compile Groovy source files.
 
 Add a :groovy-source-path key to project.clj to specify where to find them."
   [project & [directory]]
