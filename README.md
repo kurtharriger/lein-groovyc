@@ -8,15 +8,15 @@ Compile groovy source files
    :dev-dependencies [[lein-groovyc "0.1.0"]]
    :groovyc-source-path "src/groovy"
 
-   ;;Multiple paths and additional options can be specified in a vector
-   :groovyc-source-path [["src/groovy/main" :includeJavaRuntime true]]
+   ;;Multiple paths can be specified using paths instead
+   :groovyc-source-paths ["src/groovy/main"]
 
    ;; or more generally in groovyc-options
    :groovyc-options {:includeJavaRuntime true}
 
-   ;; automatically run groovyc task after javac
-   :hooks [leiningen.hooks.groovyc]
 
+   Run groovyc
+   lein clean, groovyc
 
 ## License
 

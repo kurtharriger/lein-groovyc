@@ -1,9 +1,9 @@
 (ns leiningen.groovyc
-  (:use [leiningen.classpath :only [get-classpath-string]]
-        [leiningen.util.paths :only [normalize-path]])
+  (:require [clojure.string :as string])
+  (:require [leiningen.core.classpath :as classpath])
+  (:require [clojure.java.io :as io])
   (:require [lancet.core :as lancet])
-  (:import [java.io File]
-           [org.codehaus.groovy.ant Groovyc]))
+  (:import [org.codehaus.groovy.ant Groovyc]))
 
 (.addTaskDefinition lancet/ant-project "groovyc" Groovyc)
 (lancet/define-ant-task groovyc-task "groovyc")
@@ -16,22 +16,24 @@
    :includejavaruntime "yes"
    :verbose "true"})
 
+(defn get-classpath-string [project]
+  (string/join java.io.File/pathSeparatorChar (classpath/get-classpath project)))
+
 (defn- extract-groovyc-task
   "Extract a compile task from the given spec."
-  [project [path & options]]
+  [project path]
   (merge *default-groovyc-options*
          (:groovc-options project)
          {:destdir (:compile-path project)
-          :srcdir (normalize-path (:root project) path)
-          :classpath (get-classpath-string project)}
-         (apply hash-map options)))
+          :srcdir path
+          :classpath (get-classpath-string project)}))
 
 (defn- extract-groovyc-tasks
   "Extract all compile tasks of the project."
   [project]
-  (let [specs (:groovy-source-path project)]
-    (for [spec (if (string? specs) [[specs]] specs)]
-      (extract-groovyc-task project spec))))
+  (let [paths (:groovy-source-paths project [(:groovy-source-path project)])]
+    (for [path paths]
+      (extract-groovyc-task project path))))
 
 (defn- run-groovyc-task
   "Compile the given task spec."
