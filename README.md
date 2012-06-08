@@ -14,9 +14,9 @@ Compile groovy source files
    ;; or more generally in groovyc-options
    :groovyc-options {:includeJavaRuntime true}
 
+   ;; automatically run groovyc task after javac
+   :hooks [leiningen.hooks.groovyc]
 
-   Run groovyc
-   lein clean, groovyc
 
 ## License
 
