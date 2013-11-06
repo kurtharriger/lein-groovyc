@@ -6,8 +6,9 @@ Compile groovy source files
 
    Add the following to your project.clj
 
-   ...
+   ```clojure
    :plugins [[lein-groovyc "0.3.0"]]
+
    :groovy-source-paths ["src/groovy"]
 
    ;; or more generally in groovyc-options
@@ -15,8 +16,7 @@ Compile groovy source files
 
    ;; automatically run groovyc task after javac
    :hooks [leiningen.hooks.groovyc]
-   ...
-
+   ```
 
 ## License
 
