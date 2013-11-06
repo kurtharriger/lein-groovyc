@@ -4,6 +4,8 @@ Compile groovy source files
 
 ## Usage
 
+  Now using Groovy v2.1.9
+
    Add the following to your project.clj
 
    ```clojure
