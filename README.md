@@ -5,17 +5,17 @@ Compile groovy source files
 ## Usage
 
    Add the following to your project.clj
-   :dev-dependencies [[lein-groovyc "0.1.0"]]
-   :groovyc-source-path "src/groovy"
 
-   ;;Multiple paths can be specified using paths instead
-   :groovyc-source-paths ["src/groovy/main"]
+   ...
+   :plugins [[lein-groovyc "0.3.0"]]
+   :groovy-source-paths ["src/groovy"]
 
    ;; or more generally in groovyc-options
    :groovyc-options {:includeJavaRuntime true}
 
    ;; automatically run groovyc task after javac
    :hooks [leiningen.hooks.groovyc]
+   ...
 
 
 ## License

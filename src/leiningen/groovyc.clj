@@ -23,7 +23,7 @@
   "Extract a compile task from the given spec."
   [project path]
   (merge *default-groovyc-options*
-         (:groovc-options project)
+         (:groovyc-options project)
          {:destdir (:compile-path project)
           :srcdir path
           :classpath (get-classpath-string project)}))
