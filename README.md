@@ -8,6 +8,8 @@ Compile groovy source files
 
    Add the following to your project.clj
 
+  Available options for use with :groovyc-options - http://groovy.codehaus.org/api/org/codehaus/groovy/ant/Groovyc.html
+
    ```clojure
    :plugins [[lein-groovyc "0.3.0"]]
 
